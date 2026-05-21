@@ -87,7 +87,7 @@ const Footer = ({ setActivePage }) => {
 
         {/* Bottom copyright row */}
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Shopora Inc. All rights reserved. Built using SQLite & React.</p>
+          <p>&copy; {new Date().getFullYear()} Shopora Inc. All rights reserved. Designed & developed with ❤️ by <strong style={{ color: 'var(--text-primary)', borderBottom: '1px dotted var(--accent-color)' }}>Shresth Kesarwani</strong>.</p>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
