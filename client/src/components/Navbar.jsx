@@ -15,6 +15,7 @@ const Navbar = ({ activePage, setActivePage }) => {
   } = useContext(AppContext);
 
   const [localSearch, setLocalSearch] = useState(searchQuery);
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -56,7 +57,19 @@ const Navbar = ({ activePage, setActivePage }) => {
       <header className="main-header">
         <div className="container header-container">
           {/* Logo */}
-          <a href="#" className="logo" onClick={() => handleNavClick('home')}>
+          <a 
+            href="#" 
+            className="logo" 
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('home');
+            }}
+            onDoubleClick={(e) => {
+              e.preventDefault();
+              setShowEasterEgg(true);
+            }}
+            title="Double click for credits! ✨"
+          >
             Shopora<span>.</span>
           </a>
 
@@ -205,6 +218,48 @@ const Navbar = ({ activePage, setActivePage }) => {
           )}
         </div>
       </nav>
+
+      {/* Easter Egg Modal */}
+      {showEasterEgg && (
+        <div className="easter-egg-overlay" onClick={() => setShowEasterEgg(false)}>
+          <div className="easter-egg-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="easter-egg-close" onClick={() => setShowEasterEgg(false)} aria-label="Close modal">
+              &times;
+            </button>
+            
+            <div className="easter-egg-badge">CREATOR SPOTLIGHT</div>
+            
+            <div className="easter-egg-avatar">
+              <span>SK</span>
+            </div>
+            
+            <h2 className="easter-egg-title">Shresth Kesarwani</h2>
+            <p className="easter-egg-subtitle">Lead Developer & Designer</p>
+            
+            <div className="easter-egg-divider"></div>
+            
+            <p className="easter-egg-description">
+              This premium e-commerce platform has been designed, coded, and optimized from the ground up by <strong>Shresth Kesarwani</strong>.
+            </p>
+            
+            <div className="easter-egg-tech-title">PROJECT TECH STACK</div>
+            <div className="easter-egg-tech-tags">
+              <span className="tech-tag">React</span>
+              <span className="tech-tag">Vite</span>
+              <span className="tech-tag">Node.js</span>
+              <span className="tech-tag">Express</span>
+              <span className="tech-tag">SQLite3</span>
+              <span className="tech-tag">Vanilla CSS</span>
+              <span className="tech-tag">Responsive Design</span>
+            </div>
+            
+            <div className="easter-egg-footer">
+              <p>Made with ❤️, passion, and precision.</p>
+              <p className="easter-egg-copyright">&copy; {new Date().getFullYear()} Shresth Kesarwani. MIT Licensed.</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
