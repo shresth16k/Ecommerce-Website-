@@ -71,15 +71,15 @@ const Footer = ({ setActivePage }) => {
             <ul className="footer-links" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <MapPin size={16} className="text-muted" />
-                <span>123 Elite Avenue, New York, NY</span>
+                <span>Test Place</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Phone size={16} className="text-muted" />
-                <span>+1 (555) 019-2834</span>
+                <span>+00 123 456 7890</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Mail size={16} className="text-muted" />
-                <span>hello@shopora.com</span>
+                <span>test@example.com</span>
               </li>
             </ul>
           </div>
